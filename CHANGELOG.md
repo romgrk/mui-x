@@ -3,6 +3,119 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.0-alpha.0
+
+_Nov 1, 2024_
+
+We'd like to offer a big thanks to the 16 contributors who made this release possible. Here are some highlights ✨:
+
+- The `legend` prop got removed. To pass props to the legend, use `slotProps={{ legend: { ... } }}` instead. This can be automatically done with the codemod as long as the `legend` prop does not come from a destructured object.
+
+  ```jsx
+  // Supported by the codemod
+  <LineChart legend={{ ... }} />
+
+  // Not supported by the codemod
+  const props = { legend: { ... }, ... }
+  <Line {...props} />
+  ```
+
+- The `slots.legend` does not receive the `drawingArea` prop. You can still access your custom legend with the `useDrawingArea()` hook if your custom legend needs it.
+- 🐞 Bugfixes
+- 📚 Documentation improvements
+
+Special thanks go out to the community contributors who have helped make this release possible:
+@arminmeh, @dpak-maurya, @k-rajat19, @KenanYusuf, @noraleonte, @romgrk, @wojtkolos.
+Following are all team members who have contributed to this release:
+@alexfauquette, @arthurbalduini, @cherniavskii, @flaviendelangle, @LukasTy, @MBilalShafi, @michelengelen, @oliviertassinari, @samuelsycamore.
+
+<!--/ HIGHLIGHT_ABOVE_SEPARATOR /-->
+
+### Data Grid
+
+#### `@mui/x-data-grid@8.0.0-alpha.0`
+
+- [DataGrid] Fix overlay height in `autoHeight` mode (#15201) @cherniavskii
+- [DataGrid] Fix right column group header border (#15105) @KenanYusuf
+- [DataGrid] Fix scroll jump when holding down arrow keys (#15164) @arminmeh
+- [DataGrid] Focus next row when the focused row is deleted (#15061) @cherniavskii
+- [DataGrid] Move `rowGroupingModelChange` handler to respective hook (#15124) @MBilalShafi
+- [DataGrid] Prevent error when deleting the last row (#15146) @dpak-maurya
+- [DataGrid] refactor: baseMenuList & baseMenuItem (#15049) @romgrk
+- [DataGrid] refactor: remove more material imports (#15063) @romgrk
+
+#### `@mui/x-data-grid-pro@8.0.0-alpha.0` [![pro](https://mui.com/r/x-pro-svg)](https://mui.com/r/x-pro-svg-link 'Pro plan')
+
+Same changes as in `@mui/x-data-grid@8.0.0-alpha.0`, plus:
+
+- [DataGridPro] Add list view tests (#15043) @KenanYusuf
+- [DataGridPro] Fix column pinning layout (#14966) @cherniavskii
+
+#### `@mui/x-data-grid-premium@8.0.0-alpha.0` [![premium](https://mui.com/r/x-premium-svg)](https://mui.com/r/x-premium-svg-link 'Premium plan')
+
+Same changes as in `@mui/x-data-grid-pro@8.0.0-alpha.0`, plus:
+
+- [DataGridPremium] Keep focus on the grouping cell on space bar press (#15108) @k-rajat19
+- [DataGridPremium] Server-side data source with row grouping (#13826) @MBilalShafi
+
+### Date and Time Pickers
+
+#### `@mui/x-date-pickers@8.0.0-alpha.0`
+
+- [fields] Enable the new field DOM structure by default (#14651) @flaviendelangle
+- [fields] Remove `UseDateFieldComponentProps` and equivalent interfaces (#15053) @flaviendelangle
+- [l10n] Improve Polish (plPL) locale (#14891) @wojtkolos
+- [pickers] Clean the new `ownerState` object (#15056) @flaviendelangle
+- [pickers] Correctly type the `ownerState` of the `field` and `actionBar` slots when resolved in a picker component (#15162) @flaviendelangle
+- [pickers] Fix `DateCalendar` timezone management (#12321) @LukasTy
+- [pickers] Fix `DigitalClock` time options on a `DST` switch day (#10793) @LukasTy
+- [pickers] Remove `utils` and `value` params from translations (#14986) @arthurbalduini
+- [pickers] Remove the re-export from `@mui/x-license` (#14487) @k-rajat19
+- [pickers] Use the new `ownerState` in `usePickersLayout` and `useXXXPicker` (#14994) @flaviendelangle
+
+#### `@mui/x-date-pickers-pro@8.0.0-alpha.0` [![pro](https://mui.com/r/x-pro-svg)](https://mui.com/r/x-pro-svg-link 'Pro plan')
+
+Same changes as in `@mui/x-date-pickers@8.0.0-alpha.0`.
+
+### Charts
+ 
+#### `@mui/x-charts@8.0.0-alpha.0`
+
+- [charts] Fix tooltip follow mouse (#15189) @alexfauquette
+- [charts] Remove deprecated `legend` props (#15081) @alexfauquette
+- [charts] Update Popper position outside of react (#15003) @alexfauquette
+
+#### `@mui/x-charts-pro@__VERSION-ALPHA__` [![pro](https://mui.com/r/x-pro-svg)](https://mui.com/r/x-pro-svg-link 'Pro plan')
+
+Same changes as in `@mui/x-charts@8.0.0-alpha.0`.
+
+### Tree View
+
+#### `@mui/x-tree-view@8.0.0-alpha.0`
+
+- [TreeView] Automatic parents and children selection (#14899) @flaviendelangle
+- [TreeView] Fix drag and drop color usage (#15042) @LukasTy
+- [TreeView] Replace `<TreeItem />` with `<TreeItem2 />` and migrate all the components and utils (#14913) @flaviendelangle
+- [TreeView] Replace the Tree Item anatomy images (#15066) @noraleonte
+
+### Docs
+
+- [docs] Add section explaining how to keep the selection while filtering (#15185) @arminmeh
+- [docs] Apply the new DX to the Button Field demos (#14860) @flaviendelangle
+- [docs] Apply the new DX to the `Autocomplete` Field demo (#15165) @flaviendelangle
+- [docs] Copyedit the Charts Getting Started sequence (#14962) @samuelsycamore
+- [docs] Create Pickers masked field recipe (#13515) @flaviendelangle
+- [docs] Start v8 migration guides (#15096) @MBilalShafi
+- [docs] Use `next` instead of `^8.0.0` in the migration guides (#15091) @flaviendelangle
+
+### Core
+
+- [core] Adjust cherry-pick GH actions (#15099) @LukasTy
+- [core] Apply () function convention (#15075) @oliviertassinari
+- [core] Fix Vale error on master @oliviertassinari
+- [core] Fix changelog reference to VoiceOver @oliviertassinari
+- [release] v8 preparation (#15054) @michelengelen
+
 ## 7.21.0
 
 _Oct 17, 2024_
